@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family:Arial; padding:20px; background:#8A9A3A;">
+
+<h3 align="right">
+    <a href="index.html">Home</a> |
+    <a href="menu.html">Menu</a> |
+    <a href="order.html">Order</a>
+</h3>
+
+<h2>Place Order</h2>
+
+<button onclick="placeOrder()">Confirm Order</button>
+
+<div id="invoice" style="margin-top:30px;"></div>
+
+<script>
+
+let selectedItems = JSON.parse(localStorage.getItem("orderItems")) || [];
+
+
+window.onload = function(){
+
+    if(selectedItems.length===0){
+        document.getElementById("invoice").innerHTML = "No items selected";
+        return;
+    }
+
+    let html = "<h3>Your Order</h3>";
+
+    selectedItems.forEach(item=>{
+        html += `<p>${item.name} x ${item.quantity} = ₹${item.price * item.quantity}</p>`;
+    });
+
+    document.getElementById("invoice").innerHTML = html;
+}
+
+
+async function placeOrder(){
+
+    if(selectedItems.length===0){
+        alert("No items");
+        return;
+    }
+
+    const res = await fetch('/api/order',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({items:selectedItems})
+    });
+
+    const data = await res.json();
+
+    let html = `
+    <h2>MOFU CAFE</h2>
+    <p>Order No: ${data.orderNumber}</p>
+    <p>Pickup Code: ${data.pickupCode}</p>
+    <hr>
+    `;
+
+    data.items.forEach(item=>{
+        html += `<p>${item.name} x ${item.quantity}</p>`;
+    });
+
+    html += `<h3>Total: ₹${data.total}</h3>`;
+
+    document.getElementById("invoice").innerHTML = html;
+
+    localStorage.removeItem("orderItems");
+}
+</script>
+
+</body>
+</html>

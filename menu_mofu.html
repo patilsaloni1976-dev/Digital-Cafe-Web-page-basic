@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mofu - Menu</title>
+    <style>
+        body{
+            background-color:#8A9A3A;
+            margin:0;
+            color:#fffaf0;
+            font-family:Georgia, serif;
+        }
+
+        h3{
+            margin:0;
+            padding:20px 30px 10px 0;
+            text-align:right;
+        }
+
+        h3 a{
+            color:white;
+            text-decoration:none;
+            margin:0 5px;
+        }
+
+        h1{
+            text-align:center;
+            margin-top:20px;
+            margin-bottom:25px;
+            font-size:48px;
+        }
+
+        table{
+            width:95%;
+            margin:auto;
+            text-align:center;
+            border-collapse:separate;
+            border-spacing:15px;
+        }
+
+        th{
+            font-size:28px;
+            padding:12px;
+        }
+
+        td{
+            vertical-align:top;
+            background-color:rgba(255,255,255,0.08);
+            padding:20px 10px;
+            border-radius:12px;
+        }
+
+        img{
+            width:120px;
+            height:120px;
+            border-radius:12px;
+            object-fit:cover;
+            box-shadow:0 4px 10px rgba(0,0,0,0.25);
+        }
+
+        .item{
+            margin-bottom:25px;
+            line-height:1.5;
+        }
+
+        .qty-box{
+            margin-top:10px;
+        }
+
+        .qty-box button{
+            width:30px;
+            height:30px;
+            border:none;
+            border-radius:6px;
+            background:white;
+            color:#556B2F;
+            font-size:18px;
+            cursor:pointer;
+        }
+
+        .qty-box span{
+            display:inline-block;
+            width:30px;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        .order-section{
+            text-align:center;
+            margin:30px 0;
+        }
+
+        .order-section button{
+            padding:12px 25px;
+            font-size:18px;
+            border:none;
+            border-radius:8px;
+            background:white;
+            color:#556B2F;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3>
+        <a href="index.html" target="_top">Home</a> |
+        <a href="menu.html" target="_top">Menu</a> |
+        <a href="order.html" target="_top">Order</a>
+    </h3>
+
+    <h1>Our Menu</h1>
+
+    <table>
+        <tr>
+            <th>Beverages</th>
+            <th>Snacks</th>
+            <th>Desserts</th>
+            <th>Mofu-special</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="item">
+                    <img src="pics/p2.jpg"><br>
+                    Matcha Latte<br>Rs. 120
+                    <div class="qty-box">
+                        <button onclick="changeQty('matcha', -1)">-</button>
+                        <span id="matcha">0</span>
+                        <button onclick="changeQty('matcha', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Brown Sugar Milk.jpg"><br>
+                    Brown Sugar Milk<br>Rs. 100
+                    <div class="qty-box">
+                        <button onclick="changeQty('brownSugar', -1)">-</button>
+                        <span id="brownSugar">0</span>
+                        <button onclick="changeQty('brownSugar', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Iced Hojicha.jpg"><br>
+                    Iced Hojicha<br>Rs. 110
+                    <div class="qty-box">
+                        <button onclick="changeQty('hojicha', -1)">-</button>
+                        <span id="hojicha">0</span>
+                        <button onclick="changeQty('hojicha', 1)">+</button>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="item">
+                    <img src="pics/Rice Cake.jpg"><br>
+                    Rice Cake<br>Rs. 80
+                    <div class="qty-box">
+                        <button onclick="changeQty('riceCake', -1)">-</button>
+                        <span id="riceCake">0</span>
+                        <button onclick="changeQty('riceCake', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Mochi Waffle.jpg"><br>
+                    Mochi Waffle<br>Rs. 90
+                    <div class="qty-box">
+                        <button onclick="changeQty('mochiWaffle', -1)">-</button>
+                        <span id="mochiWaffle">0</span>
+                        <button onclick="changeQty('mochiWaffle', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Cheese Toast.jpg"><br>
+                    Cheese Toast<br>Rs. 70
+                    <div class="qty-box">
+                        <button onclick="changeQty('cheeseToast', -1)">-</button>
+                        <span id="cheeseToast">0</span>
+                        <button onclick="changeQty('cheeseToast', 1)">+</button>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="item">
+                    <img src="pics/Mochi Ice Cream.jpg"><br>
+                    Mochi Ice Cream<br>Rs. 130
+                    <div class="qty-box">
+                        <button onclick="changeQty('mochiIce', -1)">-</button>
+                        <span id="mochiIce">0</span>
+                        <button onclick="changeQty('mochiIce', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Matcha Roll Cake.jpg"><br>
+                    Matcha Roll Cake<br>Rs. 150
+                    <div class="qty-box">
+                        <button onclick="changeQty('rollCake', -1)">-</button>
+                        <span id="rollCake">0</span>
+                        <button onclick="changeQty('rollCake', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Pudding Cup.jpg"><br>
+                    Pudding Cup<br>Rs. 95
+                    <div class="qty-box">
+                        <button onclick="changeQty('pudding', -1)">-</button>
+                        <span id="pudding">0</span>
+                        <button onclick="changeQty('pudding', 1)">+</button>
+                    </div>
+                </div>
+            </td>
+
+            <td>
+                <div class="item">
+                    <img src="pics/Mofu Cloud Set.jpg"><br>
+                    Mofu Cloud Set<br>Rs. 250
+                    <div class="qty-box">
+                        <button onclick="changeQty('cloudSet', -1)">-</button>
+                        <span id="cloudSet">0</span>
+                        <button onclick="changeQty('cloudSet', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Mofu bento.jpg"><br>
+                    Mofu Bento Box<br>Rs. 280
+                    <div class="qty-box">
+                        <button onclick="changeQty('bento', -1)">-</button>
+                        <span id="bento">0</span>
+                        <button onclick="changeQty('bento', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="pics/Mofu Dream Drink.jpg"><br>
+                    Mofu Dream Drink<br>Rs. 200
+                    <div class="qty-box">
+                        <button onclick="changeQty('dreamDrink', -1)">-</button>
+                        <span id="dreamDrink">0</span>
+                        <button onclick="changeQty('dreamDrink', 1)">+</button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div class="order-section">
+        <h2>Total: Rs. <span id="total">0</span></h2><br>
+        <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <script>
+        var prices = {
+            matcha: 120,
+            brownSugar: 100,
+            hojicha: 110,
+            riceCake: 80,
+            mochiWaffle: 90,
+            cheeseToast: 70,
+            mochiIce: 130,
+            rollCake: 150,
+            pudding: 95,
+            cloudSet: 250,
+            bento: 280,
+            dreamDrink: 200
+        };
+
+        function changeQty(itemId, change) {
+            var qtyElement = document.getElementById(itemId);
+            var qty = parseInt(qtyElement.innerText);
+            qty = qty + change;
+
+            if (qty < 0) qty = 0;
+
+            qtyElement.innerText = qty;// update krega no screen pe qty kaa
+            updateTotal();
+        }
+
+        function updateTotal() {
+            var total = 0;
+
+            for (var item in prices) {
+                var qty = parseInt(document.getElementById(item).innerText);
+                total += qty * prices[item];
+            }
+
+            document.getElementById("total").innerText = total;
+        }
+
+        
+        function placeOrder() {
+            var items = [];
+
+            for (var item in prices) {
+                var qty = parseInt(document.getElementById(item).innerText);
+
+                if (qty > 0) {
+                    items.push({
+                        name: item,
+                        quantity: qty,
+                        price: prices[item]
+                    });
+                }
+            }
+
+            if (items.length === 0) {
+                alert("Please select at least one item.");
+                return;
+            }
+
+            localStorage.setItem("orderItems", JSON.stringify(items));
+            window.location.href = "order.html";
+        }
+    </script>
+
+</body>
+</html>
